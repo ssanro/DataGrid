@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="DataGrid" lang="es">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/style.css"  type="text/css"> 
+
+	<title>DataGrid</title>
+</head>
+<body>
+	<header>
+		<h1>DataGrid</h1>
+	</header>
+	<section>
+        <div ng-controller = "DataGridCnt as rows">  
+            <table>
+            	<thead>
+            		<tr>
+            			<th>
+            				<a href="" ng-click="sortType = 'Cod'; sortReverse = !sortReverse">Cod.
+        						<span ng-show="sortType == 'Cod' && !sortReverse" class="caret-up"></span>
+        						<span ng-show="sortType == 'Cod' && sortReverse" class="caret-down"></span>
+            				</a>
+            			</th>
+            			<th>
+            				<a href="" ng-click="sortType = 'Nombre'; sortReverse = !sortReverse">Nombre
+        						<span ng-show="sortType == 'Nombre' && !sortReverse" class="caret-up"></span>
+        						<span ng-show="sortType == 'Nombre' && sortReverse" class="caret-down"></span>
+            				</a>
+            			</th>
+            			<th>
+            				<a href="" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">Descripción
+        						<span ng-show="sortType == 'Descripcion' && !sortReverse" class="caret-up"></span>
+        						<span ng-show="sortType == 'Descripcion' && sortReverse" class="caret-down"></span>
+            				</a>
+            			</th>
+            			<th>
+            				<a href="" ng-click="sortType = 'Color'; sortReverse = !sortReverse">Color
+        						<span ng-show="sortType == 'Color' && !sortReverse" class="caret-up"></span>
+        						<span ng-show="sortType == 'Color' && sortReverse" class="caret-down"></span>
+            				</a>
+            			</th>
+            			<th>
+            				<a href="" ng-click="sortType = 'Material'; sortReverse = !sortReverse">Material
+        						<span ng-show="sortType == 'Material' && !sortReverse" class="caret-up"></span>
+        						<span ng-show="sortType == 'Material' && sortReverse" class="caret-down"></span>
+            				</a>
+            			</th>
+            			<th>
+            				<a href="" ng-click="sortType = 'Precio_Uni'; sortReverse = !sortReverse">Precio
+        						<span ng-show="sortType == 'Precio_Uni' && !sortReverse" class="caret-up"></span>
+        						<span ng-show="sortType == 'Precio_Uni' && sortReverse" class="caret-down"></span>
+            				</a>
+            			</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr ng-repeat="row in rows.line | orderBy:sortType:sortReverse">
+            			<td class="lft">{{ row.Cod }}</td>
+            			<td>{{ row.Nombre }}</td>
+            			<td>{{ row.Descripcion }}</td>
+            			<td><input type="color" name="favcolor" value="{{ row.Color }}"></td>
+            			<td class="cnt">{{ row.Material }}</td>
+            			<td class="lft">{{ row.Precio_Uni | number:2 }} €</td>
+            		</tr>
+            	</tbody>
+            </table>
+		</div>
+	</section>
+	<footer>
+		<script type="text/javascript" src="lib/angular1.5.min.js"></script>
+		<script type="text/javascript" src="module/app.js"></script>
+	</footer>
+</body>
+</html>
