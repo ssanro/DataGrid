@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="DataGrid" lang="es">
+<html ng-app="DataGrid" lang="en-ES">
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/style.css"  type="text/css"> 
@@ -61,6 +61,7 @@
             			<td><input type="color" name="favcolor" value="{{ row.Color }}"></td>
             			<td class="cnt">{{ row.Material }}</td>
             			<td class="lft">{{ row.Precio_Uni | number:2 }} €</td>
+                        <td><button ng-click="removeItem($index)">Eliminar fila</button></td>
             		</tr>
             	</tbody>
             </table>
